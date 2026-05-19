@@ -4,45 +4,47 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.TypedQuery;
-import org.ats.entities.Department;
+import org.ats.entities.Job;
 
 import java.util.List;
 
-public class DepartmentDaoImpl implements DepartmentDao {
+public class JobDaoImpl implements JobDao {
     private EntityManager entityManager;
 
-    public DepartmentDaoImpl() {
+    public JobDaoImpl() {
         entityManager = Persistence.createEntityManagerFactory("ats-jpa-unit").createEntityManager();
     }
 
-    /**
-     *
-     * @param dept
-     * @return In JPA/Hibernate: change data (Insert, delete, update) -> transaction (tự quản lý)
-     */
     @Override
-    public Department createDepartment(Department dept) {
+    public Job createJob(Job job) {
         EntityTransaction tx = null;
+
         try {
             tx = entityManager.getTransaction();
             tx.begin();
-
-            entityManager.persist(dept);
+            entityManager.persist(job);
 
             tx.commit();
+
         } catch (Exception e) {
-            if (tx != null) {
-                tx.rollback();
+            if(tx == null) {
+                tx = entityManager.getTransaction();
             }
+
             throw new RuntimeException("Has an error occurred!");
         }
-        return dept;
+        return null;
     }
 
     @Override
-    public List<Department> findAll() {
-        TypedQuery<Department> query = entityManager.createQuery("SELECT d " +
-                "FROM Department d", Department.class);
+    public List<Job> findByTitle(String title) {
+
+        // JPQL
+        TypedQuery<Job> query = entityManager.createQuery("" +
+                "SELECT j FROM Job j WHERE j.title LIKE :param", Job.class);
+
+        query.setParameter("param", "%" + title + "%"); // %java%
+
         return query.getResultList();
     }
 }

@@ -3,6 +3,8 @@ package org.ats.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Set;
+
 @Entity
 @Table(indexes = {@Index(name = "UNIX_NAME", columnList = "department_name")},
         name = "departments")
@@ -20,4 +22,7 @@ public class Department extends  BaseEntity{
     private String departmentName;
 
     private String description;
+
+    @OneToMany(mappedBy = "department")
+    private Set<Job> jobs;
 }
