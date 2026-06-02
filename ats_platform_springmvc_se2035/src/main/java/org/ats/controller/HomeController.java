@@ -15,7 +15,7 @@ public class HomeController {
 
 
         // Return view
-        return "index"; // prefix + "index" + suffix -> /WEB-INF/index.jsp
+        return "auths/login"; // prefix + "index" + suffix -> /WEB-INF/index.jsp
     }
 
 }
