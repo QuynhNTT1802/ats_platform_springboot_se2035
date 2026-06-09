@@ -10,7 +10,7 @@ import java.util.Set;
 @Table(name = "jobs")
 @Setter@Getter
 @NoArgsConstructor@AllArgsConstructor
-@ToString(exclude = "department")
+@ToString(exclude = {"department", "skills"})
 @Builder
 public class Job extends BaseEntity{
 

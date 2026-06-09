@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/auths")
@@ -26,21 +27,19 @@ public class AuthController {
     @PostMapping("/login")
     public ModelAndView processLogin(@RequestParam(name = "email") String emailAddress,
                                      @RequestParam(name = "password") String password,
-                                     HttpSession session
+                                     HttpSession session,
+                                     RedirectAttributes redirectAttributes
     ) {
         System.out.println("Email address : " + emailAddress + "; Password: " + password);
 
         ModelAndView mv = new ModelAndView();
-//        try {
         User user = authService.authenticate(new UserRequest(emailAddress, password));
         session.setAttribute("user", user);
-//        } catch (Exception e) {
-//            mv.addObject("errorMessage", "Invalid email or password");
-//            mv.setViewName("auths/login");
-//            return mv;
-//        }
 
-        mv.setViewName("general_dashboard");
+        // Short session
+        redirectAttributes.addFlashAttribute("message", "Successfully logged in");
+
+        mv.setViewName("redirect:/jobs");
 
         return mv;
     }

@@ -33,7 +33,7 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false" th:text="${user.fullName}">
+                           data-bs-toggle="dropdown" aria-expanded="false" th:text="${session.user.fullName}">
 
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -49,14 +49,64 @@
             </div>
         </div>
     </nav>
-    <div class="row p-4">
-        <h3>General Dashboard</h3>
-        <hr>
-        <div class="col-md-12">
+    <div class="row p-4 d-flex justify-content-center">
+        <div class="col-md-11">
+            <h3>General Dashboard</h3>
+            <hr>
 
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Min Salary</th>
+                    <th scope="col">Max Salary</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Deadline</th>
+                    <th scope="col">Published At</th>
+                    <th scope="col" class="w-25"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="job: ${jobs}">
+                    <td th:text="${job.id}"></td>
+                    <td th:text="${job.title}"></td>
+                    <td th:text="${job.description}"></td>
+                    <td th:text="${job.location}"></td>
+                    <td th:text="${job.minSalary}"></td>
+                    <td th:text="${job.maxSalary}"></td>
+                    <td th:text="${job.status}"></td>
+                    <td th:text="${job.deadline}"></td>
+                    <td th:text="${job.publishedAt}"></td>
+                    <td>
+                        <a type="button" href="#" class="btn btn-primary">Edit</a>
+                        <a type="button" href="#" class="btn btn-danger" th:id="${job.id}">Delete</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </div>
+
+
     </div>
 </div>
 
 </body>
+<script type="text/javascript">
+    document.querySelectorAll(".btn-danger")
+        .forEach((item => item.addEventListener("click", function (event) {
+                const id = event.target.id;
+
+                console.log(id);
+
+                const confirm = window.confirm("Do you want delete this");
+
+                if (confirm) {
+                    window.location.href = "jobs/" + id + "/delete";
+                }
+            })
+        ));
+</script>
 </html>
