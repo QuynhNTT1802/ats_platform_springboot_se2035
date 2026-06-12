@@ -14,4 +14,6 @@ public interface SkillDao {
 
     List<Skill> findByName(String keyword);
 
+    List<Skill> findAll();
+
 }

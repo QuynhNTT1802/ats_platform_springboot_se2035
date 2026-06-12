@@ -1,5 +1,6 @@
 package org.ats.services;
 
+import lombok.RequiredArgsConstructor;
 import org.ats.dao.DepartmentDao;
 import org.ats.dto.DepartmentDto;
 import org.ats.entities.Department;
@@ -8,15 +9,12 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
 
-//@Service("departmentService") // IoC
+@Service("departmentService") // IoC
+@RequiredArgsConstructor
 public class DepartmentServiceImpl implements DepartmentService {
 
-    private DepartmentDao departmentDao;
-
-    public DepartmentServiceImpl(DepartmentDao departmentDao) {
-        this.departmentDao = departmentDao;
-    }
-
+    private final DepartmentDao departmentDao;
+    
 //    public void setDepartmentDao(DepartmentDao departmentDao) {
 //        this.departmentDao = departmentDao;
 //    }

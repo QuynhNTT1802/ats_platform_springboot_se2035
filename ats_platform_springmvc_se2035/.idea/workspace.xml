@@ -10,17 +10,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83bfa993-325e-4a81-9084-752d69289079" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Presentation Topic-1-.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ats/dto/SkillResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ats/entities/JobStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ats/services/SkillService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ats/services/SkillServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/jobs/job_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/controller/AuthController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/controller/JobController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/controller/JobController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/dao/JobDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/dao/JobDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/dao/JobDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/dao/JobDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/dao/DepartmentDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/dao/DepartmentDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/dao/SkillDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/dao/SkillDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/dao/SkillDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/dao/SkillDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/dto/JobRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/dto/JobRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/entities/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/entities/Department.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/entities/Job.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/entities/Job.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/entities/JobSkill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/entities/JobSkill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/entities/Skill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/entities/Skill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/services/DepartmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/services/DepartmentServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/services/JobService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/services/JobService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/services/JobServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/services/JobServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/general_dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/jobs/general_dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/jobs/general_dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/jobs/general_dashboard.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +41,7 @@
         <option value="HTML File" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -233,11 +242,23 @@
       <workItem from="1780390650485" duration="4902000" />
       <workItem from="1780639643935" duration="1104000" />
       <workItem from="1780640789114" duration="6941000" />
-      <workItem from="1780994939612" duration="5687000" />
+      <workItem from="1780994939612" duration="6112000" />
+      <workItem from="1781244043217" duration="7497000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/ats/controller/JobController.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

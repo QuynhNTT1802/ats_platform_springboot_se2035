@@ -1,84 +1,56 @@
 package org.ats.dao;
 
-import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
+import lombok.RequiredArgsConstructor;
 import org.ats.entities.Skill;
-import org.ats.utils.DbContext;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
+import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
+@RequiredArgsConstructor
 public class SkillDaoImpl implements SkillDao {
-    private EntityManager entityManager;
-
-    private SkillDaoImpl() {
-        entityManager = DbContext.getEntityManager();
-    }
+    private final SessionFactory sessionFactory;
 
     @Override
     public Skill createSkill(Skill skill) {
-        //try-with-sources
+        Session session = sessionFactory.openSession();
 
-        // Closeable
-        Transaction tx = null;
-        try (Session session = entityManager.unwrap(Session.class);) {
-            tx = session.beginTransaction();
+        session.persist(skill);
 
-            session.persist(skill);
+        return skill;
 
-            tx.commit();
-            return skill;
-        } finally {
-            if (tx != null) {
-                tx.rollback();
-            }
-        }
     }
 
     @Override
     public void delete(Long id) {
-        Transaction tx = null;
-        try (Session session = entityManager.unwrap(Session.class);) {
-            tx = session.beginTransaction();
+        Session session = sessionFactory.openSession();
+        Skill skill = session.get(Skill.class, id);
 
-            Skill skill = session.get(Skill.class, id);
-
-            session.remove(skill);
-
-            tx.commit();
-        } finally {
-            if (tx != null) {
-                tx.rollback();
-            }
-        }
+        session.remove(skill);
     }
 
     @Override
     public Skill updateSkill(Skill skill) {
-        Transaction tx = null;
-        try (Session session = entityManager.unwrap(Session.class);) {
-            tx = session.beginTransaction();
+        Session session = sessionFactory.openSession();
+        session.merge(skill);
+        return skill;
 
-            session.merge(skill);
-
-            tx.commit();
-
-            return skill;
-        } finally {
-            if (tx != null) {
-                tx.rollback();
-            }
-        }
     }
 
     @Override
     public List<Skill> findByName(String keyword) {
-        try (Session session = entityManager.unwrap(Session.class);) {
-            TypedQuery<Skill> query = session.createNamedQuery("findByName", Skill.class);
-            query.setParameter("keyword", "%" + keyword + "%");
+        Session session = sessionFactory.openSession();
+        TypedQuery<Skill> query = session.createNamedQuery("findByName", Skill.class);
+        query.setParameter("keyword", "%" + keyword + "%");
 
-            return  query.getResultList();
-        }
+        return query.getResultList();
+    }
+
+    @Override
+    public List<Skill> findAll() {
+        return sessionFactory.openSession().createQuery("FROM Skill", Skill.class).list();
     }
 }

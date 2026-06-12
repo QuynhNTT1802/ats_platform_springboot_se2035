@@ -50,6 +50,6 @@ public class Job extends BaseEntity{
     @JoinColumn(name = "department_id", referencedColumnName = "dept_id")
     private Department department;
 
-    @OneToMany(mappedBy = "job")
+    @OneToMany(mappedBy = "job", cascade = CascadeType.ALL)
     private Set<JobSkill> skills;
 }

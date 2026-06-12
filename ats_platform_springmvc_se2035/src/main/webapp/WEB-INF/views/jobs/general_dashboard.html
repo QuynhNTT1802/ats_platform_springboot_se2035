@@ -25,12 +25,7 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Job Management</a>
                     </li>
-                </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                            data-bs-toggle="dropdown" aria-expanded="false" th:text="${session.user.fullName}">
@@ -46,12 +41,21 @@
                         </ul>
                     </li>
                 </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+
             </div>
         </div>
     </nav>
     <div class="row p-4 d-flex justify-content-center">
         <div class="col-md-11">
+
             <h3>General Dashboard</h3>
+
+            <a class="btn btn-info" th:href="@{/jobs/detail}">Create new</a>
+
             <hr>
 
             <table class="table">
