@@ -21,17 +21,24 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Job Management</a>
                     </li>
+                </ul>
 
+                <form class="d-flex mx-auto my-2 my-lg-0" style="flex: 1; max-width: 600px;">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                            data-bs-toggle="dropdown" aria-expanded="false" th:text="${session.user.fullName}">
 
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="#">Profile</a></li>
                             <li><a class="dropdown-item" href="#">Another action</a></li>
                             <li>
@@ -41,11 +48,6 @@
                         </ul>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-
             </div>
         </div>
     </nav>
@@ -74,6 +76,9 @@
                     <label class="form-label">Max salary</label>
                     <input type="number" th:field="*{maxSalary}" class="form-control" required>
                 </div>
+                <button type="submit" class="btn btn-primary px-5">Save</button>
+                <a type="button" class="btn btn-secondary px-5" th:href="@{/jobs}">Close</a>
+
             </div>
             <div class="col-md-5">
                 <!--Right-->
@@ -103,9 +108,7 @@
                     <textarea class="form-control" rows="6" th:field="*{description}"></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-primary px-3">Save</button>
-                <button type="button" class="btn btn-primary px-3">Close</button>
-            </div>
+                 </div>
         </form>
     </div>
 

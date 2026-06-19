@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -44,8 +45,14 @@ public class JobController {
     @RequestMapping(method = RequestMethod.POST)
     public String createJob(@ModelAttribute(name = "job") JobRequest jobRequest, Model model) {
         System.out.println("Create job" + jobRequest);
+        List<Department> departments = departmentService.findAll();
+        List<SkillResponse> skills = skillService.findAll();
 
+
+        model.addAttribute("departments", departments);
+        model.addAttribute("skills", skills);
         jobService.createJob(jobRequest);
+
         model.addAttribute("message", "Create a new job successful");
 
         return "/jobs/job_detail";
@@ -54,11 +61,13 @@ public class JobController {
     @GetMapping
     public String listAll(@RequestParam(name = "keyword", required = false) String keyword, Model model) {
         String message = (String) model.asMap().get("message");
-        System.out.println(keyword);
+
+        System.out.println("Keyword & message: " + keyword + ", " + message);
 
         // Call Job Service
         List<Job> jobs = jobService.getAll(keyword);
         model.addAttribute("jobs", jobs);
+//        model.addAttribute("message", message);
 
         System.out.println(jobs);
 
@@ -66,7 +75,22 @@ public class JobController {
     }
 
     @GetMapping(path = "/{id}")
-    public String getById() {
-        return null;
+    public String getById(@PathVariable("id") Long id, Model model) {
+        JobRequest job = jobService.getJobById(id);
+        model.addAttribute("job", job);
+
+        return "jobs/job_detail";
+    }
+
+    @GetMapping(path = "{id}/delete")
+    public String delete(@PathVariable("id") Long id, Model model, RedirectAttributes redirectAttributes) {
+
+        System.out.println("Delete job " + id);
+
+        jobService.delete(id);
+
+        redirectAttributes.addFlashAttribute("message", "Delete job successful");
+
+        return "redirect:/jobs";
     }
 }

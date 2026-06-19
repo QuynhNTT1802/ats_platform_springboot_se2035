@@ -10,25 +10,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83bfa993-325e-4a81-9084-752d69289079" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ats/dto/SkillResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ats/entities/JobStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ats/services/SkillService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ats/services/SkillServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/jobs/job_detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ats/dao/JobSkillDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ats/dao/JobSkillDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ats/exceptions/JobNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/errors/404.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/controller/JobController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/controller/JobController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/dao/DepartmentDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/dao/DepartmentDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/dao/SkillDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/dao/SkillDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/dao/SkillDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/dao/SkillDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/dto/JobRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/dto/JobRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/entities/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/entities/Department.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/entities/Job.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/entities/Job.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/entities/JobSkill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/entities/JobSkill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/entities/Skill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/entities/Skill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/services/DepartmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/services/DepartmentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/dao/JobDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/dao/JobDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/dao/JobDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/dao/JobDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/exceptions/AppExceptionHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/exceptions/AppExceptionHandling.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/services/JobService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/services/JobService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/services/JobServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/services/JobServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/jobs/general_dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/jobs/general_dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/jobs/job_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/jobs/job_detail.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,10 +32,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
+        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="Enum" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -243,7 +237,13 @@
       <workItem from="1780639643935" duration="1104000" />
       <workItem from="1780640789114" duration="6941000" />
       <workItem from="1780994939612" duration="6112000" />
-      <workItem from="1781244043217" duration="7497000" />
+      <workItem from="1781244043217" duration="9448000" />
+      <workItem from="1781505222721" duration="24000" />
+      <workItem from="1781584263049" duration="20000" />
+      <workItem from="1781584289461" duration="16000" />
+      <workItem from="1781601349466" duration="2864000" />
+      <workItem from="1781848873666" duration="1387000" />
+      <workItem from="1781850460713" duration="5297000" />
     </task>
     <servers />
   </component>
@@ -254,9 +254,14 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/ats/services/JobServiceImpl.java</url>
+          <line>98</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/ats/controller/JobController.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="1" />
+          <line>53</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

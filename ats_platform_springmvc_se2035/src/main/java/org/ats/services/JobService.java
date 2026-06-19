@@ -11,4 +11,9 @@ public interface JobService {
     List<Job> findByTitle(String title);
 
     List<Job> getAll(String keyword);
+
+    void delete(Long id);
+
+    JobRequest getJobById(Long id);
+    Job getJobByTitle(String title);
 }

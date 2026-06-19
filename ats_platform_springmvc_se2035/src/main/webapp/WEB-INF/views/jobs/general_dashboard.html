@@ -57,7 +57,7 @@
             <a class="btn btn-info" th:href="@{/jobs/detail}">Create new</a>
 
             <hr>
-
+            <p class="text-success" th:text="${message}"></p>
             <table class="table">
                 <thead>
                 <tr>
@@ -85,7 +85,7 @@
                     <td th:text="${job.deadline}"></td>
                     <td th:text="${job.publishedAt}"></td>
                     <td>
-                        <a type="button" href="#" class="btn btn-primary">Edit</a>
+                        <a type="button" href="#" class="btn btn-primary" th:href="@{'/jobs/' + ${job.id}}">Edit</a>
                         <a type="button" href="#" class="btn btn-danger" th:id="${job.id}">Delete</a>
                     </td>
                 </tr>

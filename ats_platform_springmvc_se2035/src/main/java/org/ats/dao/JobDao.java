@@ -13,4 +13,7 @@ public interface JobDao {
 
     List<Job> findAll();
     Job updateJob(Job job);
+
+    Job findById(Long id);
+    void delete(Long id);
 }
