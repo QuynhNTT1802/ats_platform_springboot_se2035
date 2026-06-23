@@ -10,19 +10,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83bfa993-325e-4a81-9084-752d69289079" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ats/dao/JobSkillDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ats/dao/JobSkillDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ats/exceptions/JobNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/errors/404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/controller/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/controller/DepartmentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/controller/HomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/controller/JobController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/dao/AuthDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/dao/AuthDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/dao/DepartmentDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/dao/DepartmentDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/dao/JobDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/dao/JobDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/dao/JobSkillDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/dao/JobSkillDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/dao/SkillDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/dao/SkillDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/dto/DepartmentDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/dto/JobRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/dto/SkillResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/dto/UserRegisterRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/dto/UserRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/entities/BaseEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/entities/Department.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/entities/DepartmentTitleCompare.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/entities/Job.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/entities/JobSkill.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/entities/JobStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/entities/Skill.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/entities/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/exceptions/AppExceptionHandling.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/exceptions/JobNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/services/AuthService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/services/AuthServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/services/DepartmentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/services/DepartmentServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/services/JobService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/services/JobServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/services/SkillService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/services/SkillServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/java/org/ats/utils/DbContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/resources/templates/views/auths/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/resources/templates/views/errors/404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/resources/templates/views/jobs/general_dashboard.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ats_springboot_se2035/src/main/resources/templates/views/jobs/job_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/controller/JobController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/controller/JobController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/dao/JobDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/dao/JobDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/dao/JobDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/dao/JobDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/exceptions/AppExceptionHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/exceptions/AppExceptionHandling.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/services/JobService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/services/JobService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ats/services/JobServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ats/services/JobServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/jobs/general_dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/jobs/general_dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/jobs/job_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/jobs/job_detail.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,7 +273,12 @@
       <workItem from="1781584289461" duration="16000" />
       <workItem from="1781601349466" duration="2864000" />
       <workItem from="1781848873666" duration="1387000" />
-      <workItem from="1781850460713" duration="5297000" />
+      <workItem from="1781850460713" duration="6461000" />
+      <workItem from="1782207040300" duration="498000" />
+      <workItem from="1782208161483" duration="12000" />
+      <workItem from="1782208815599" duration="55000" />
+      <workItem from="1782208898870" duration="7000" />
+      <workItem from="1782208912897" duration="709000" />
     </task>
     <servers />
   </component>
