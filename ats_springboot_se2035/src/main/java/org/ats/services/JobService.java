@@ -1,6 +1,8 @@
 package org.ats.services;
 
+import org.ats.dto.JobCriteria;
 import org.ats.dto.JobRequest;
+import org.ats.dto.JobResponse;
 import org.ats.entities.Job;
 import org.springframework.data.domain.Page;
 
@@ -17,4 +19,6 @@ public interface JobService {
 
     JobRequest getJobById(Long id);
     Job getJobByTitle(String title);
+
+    Page<JobResponse> getJobsByCriteria(JobCriteria criteria, Integer pageNumber, Integer pageSize);
 }

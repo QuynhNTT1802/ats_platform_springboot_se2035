@@ -34,7 +34,11 @@ public class Job extends BaseEntity{
     private Double maxSalary;
 
     @Column(columnDefinition = "VARCHAR(50)")
+//    @Enumerated(EnumType.STRING)
     private String status;
+
+    @Column(name = "job_type")
+    private String jobType;
 
     @Column(name = "utm_source", columnDefinition = "VARCHAR(150)")
     private String utmSource;

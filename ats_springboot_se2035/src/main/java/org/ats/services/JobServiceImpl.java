@@ -2,11 +2,14 @@ package org.ats.services;
 
 import lombok.RequiredArgsConstructor;
 import org.ats.dao.JobSkillDao;
+import org.ats.dto.JobCriteria;
 import org.ats.dto.JobRequest;
+import org.ats.dto.JobResponse;
 import org.ats.entities.*;
 import org.ats.exceptions.JobNotFoundException;
 import org.ats.repositories.JobRepository;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -65,6 +68,23 @@ public class JobServiceImpl implements JobService {
     @Override
     public Job getJobByTitle(String title) {
         return null;
+    }
+
+    @Override
+    public Page<JobResponse> getJobsByCriteria(JobCriteria criteria, Integer pageNumber, Integer pageSize) {
+        if (criteria == null) {
+            Pageable pageable = PageRequest.of(pageNumber, pageSize);
+            Page<JobResponse> page = jobRepository.findAllByStatus("OPEN", pageable);
+
+
+//            List<Job> jobs = jobRepository.findByStatus("OPEN");
+
+//            List<JobResponse> jobResponses = jobs.stream().map((job) -> new JobResponse(job.getId(),
+//                    job.getTitle(), job.getDescription(), job.getLocation(),
+//                    job.getMinSalary(), job.getMaxSalary(), job.getDeadline().toLocalDate(), job.getJobType())).collect(Collectors.toList());
+            return page;
+        }
+        return new PageImpl(null);
     }
 
     private JobRequest toDto(Job job) {
