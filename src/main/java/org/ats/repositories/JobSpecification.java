@@ -20,7 +20,6 @@ public final class JobSpecification {
                 hasLocation(criteria.getLocation()),
                 hasExperience(criteria.getExperience()),
                 hasJobType(criteria.getJobType()),
-                hasQualification(criteria.getQualification()),
                 hasPriceNearRange(criteria.getPriceRange())
         );
     }
@@ -82,18 +81,6 @@ public final class JobSpecification {
             return criteriaBuilder.like(
                     criteriaBuilder.lower(root.get("jobType")),
                     "%"+jobType+"%");
-        });
-    }
-
-    private static Specification<Job> hasQualification(String qualification){
-        return ((root, query, criteriaBuilder) -> {
-            if(qualification == null || qualification.isBlank()){
-                return criteriaBuilder.conjunction();
-            }
-
-            return criteriaBuilder.like(
-                    criteriaBuilder.lower(root.get("qualification")),
-                    "%"+qualification+"%");
         });
     }
 

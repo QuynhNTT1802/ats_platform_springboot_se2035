@@ -13,7 +13,6 @@ public class JobCriteria {
     String location;
     String experience;
     String jobType;
-    String qualification;
     BigDecimal priceRange;
     Integer pageNumber;
     Integer pageSize;
