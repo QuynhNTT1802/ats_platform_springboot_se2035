@@ -1,5 +1,6 @@
 package org.ats.services;
 
+import org.ats.dto.JobBrowseRequest;
 import org.ats.dto.JobCriteria;
 import org.ats.dto.JobRequest;
 import org.ats.dto.JobResponse;
@@ -21,4 +22,7 @@ public interface JobService {
     Job getJobByTitle(String title);
 
     Page<JobResponse> getJobsByCriteria(JobCriteria criteria, Integer pageNumber, Integer pageSize);
+
+    Page<JobResponse> browseJob(JobBrowseRequest jobBrowseRequest);
+
 }

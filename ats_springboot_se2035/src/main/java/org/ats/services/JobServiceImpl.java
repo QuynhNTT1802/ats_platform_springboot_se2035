@@ -1,17 +1,22 @@
 package org.ats.services;
 
+import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.RequiredArgsConstructor;
 import org.ats.dao.JobSkillDao;
+import org.ats.dto.JobBrowseRequest;
 import org.ats.dto.JobCriteria;
 import org.ats.dto.JobRequest;
 import org.ats.dto.JobResponse;
 import org.ats.entities.*;
 import org.ats.exceptions.JobNotFoundException;
+import org.ats.mapper.JobMapper;
 import org.ats.repositories.JobRepository;
+import org.ats.repositories.JobSpecification;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,6 +33,7 @@ import java.util.stream.Collectors;
 public class JobServiceImpl implements JobService {
     private final JobRepository jobRepository;
     private final JobSkillDao jobSkillDao;
+    private final JobMapper jobMapper;
 
     @Override
     public Job createJob(JobRequest jobRequest) {
@@ -36,8 +42,8 @@ public class JobServiceImpl implements JobService {
     }
 
     @Override
-    public Page<Job> search(String title, String location, Integer pageIndex, Integer pageSize) {
-        Pageable pageable = PageRequest.of(pageIndex, pageSize);
+    public Page<Job> search(String title, String location, Integer pageNumber, Integer pageSize) {
+        Pageable pageable = PageRequest.of(pageNumber, pageSize);
 
         return jobRepository.findByTitleContainingAndLocationEquals(title, location, pageable);
     }
@@ -85,6 +91,13 @@ public class JobServiceImpl implements JobService {
             return page;
         }
         return new PageImpl(null);
+    }
+
+    @Override
+    public Page<JobResponse> browseJob(JobBrowseRequest jobBrowseRequest) {
+        Specification<Job> spec = JobSpecification.from(jobBrowseRequest);
+        Pageable pageable = PageRequest.of(jobBrowseRequest.getPageNumber(),jobBrowseRequest.getPageSize());
+        return jobRepository.findAll(spec,pageable).map(jobMapper::toDTO);
     }
 
     private JobRequest toDto(Job job) {

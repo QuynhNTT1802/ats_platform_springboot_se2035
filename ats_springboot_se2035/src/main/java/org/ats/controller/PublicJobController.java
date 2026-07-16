@@ -1,16 +1,16 @@
 package org.ats.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.ats.dto.JobBrowseRequest;
 import org.ats.dto.JobResponse;
 import org.ats.services.JobService;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.List;
 
 @Controller
 @RequestMapping("/public/jobs")
@@ -29,4 +29,9 @@ public class PublicJobController {
         model.addAttribute("currentPage", page.getNumber());
         return  "views/public/browse_job";
     }
+
+//    @GetMapping("/browse")
+//    public String browseJobs(@ModelAttribute("browseRequest") JobBrowseRequest browseRequest){
+//        Page<JobResponse> page = jobService.
+//    }
 }

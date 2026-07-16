@@ -60,16 +60,15 @@ public class JobController {
 
     @GetMapping
     public String listAll(@RequestParam(name = "keyword", required = false) String keyword, Model model) {
-        String message = (String) model.asMap().get("message");
-
-        System.out.println("Keyword & message: " + keyword + ", " + message);
+//        String message = (String) model.asMap().get("message");
+//        System.out.println("Keyword & message: " + keyword + ", " + message);
 
         // Call Job Service
         List<Job> jobs = jobService.getAll(keyword);
         model.addAttribute("jobs", jobs);
 //        model.addAttribute("message", message);
 
-        System.out.println(jobs);
+//        System.out.println(jobs);
 
         return "views/jobs/general_dashboard";
     }
