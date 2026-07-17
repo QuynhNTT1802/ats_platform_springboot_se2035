@@ -25,8 +25,4 @@ public interface JobRepository extends JpaRepository<Job, Long>, JpaSpecificatio
             SELECT new org.ats.dto.JobResponse(j.id, j.title, j.description, j.location, j.minSalary, j.maxSalary, j.deadline, j.jobType) FROM Job j WHERE j.status = :status
         """)
     Page<JobResponse> findAllByStatus(@Param("status") String status, Pageable pageable);
-
-
-
-
 }
