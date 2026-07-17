@@ -22,7 +22,7 @@ public interface JobRepository extends JpaRepository<Job, Long>, JpaSpecificatio
     List<Job> findByStatus(String status);
 
     @Query("""
-            SELECT new org.ats.dto.JobResponse(j.id, j.title, j.description, j.location, j.minSalary, j.maxSalary, j.deadline, j.jobType) FROM Job j WHERE j.status = :status
+            SELECT new org.ats.dto.JobResponse(j.id, j.title, j.description, j.experience, j.qualification, j.location, j.minSalary, j.maxSalary, j.deadline, j.jobType) FROM Job j WHERE j.status = :status
         """)
     Page<JobResponse> findAllByStatus(@Param("status") String status, Pageable pageable);
 

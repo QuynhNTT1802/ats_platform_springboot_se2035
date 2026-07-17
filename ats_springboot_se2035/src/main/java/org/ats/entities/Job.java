@@ -40,6 +40,12 @@ public class Job extends BaseEntity{
     @Column(name = "job_type")
     private String jobType;
 
+    @Column(name = "experience")
+    private String experience;
+
+    @Column(name = "qualification")
+    private String qualification;
+
     @Column(name = "utm_source", columnDefinition = "VARCHAR(150)")
     private String utmSource;
 

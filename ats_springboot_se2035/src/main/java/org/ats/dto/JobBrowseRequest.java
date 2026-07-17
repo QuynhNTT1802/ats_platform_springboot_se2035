@@ -13,11 +13,11 @@ import java.math.BigDecimal;
 public class JobBrowseRequest {
     String keyword;
     String location;
-    String experience;
     String jobType;
-    String qualification;
     BigDecimal priceRange;
-    Integer pageNumber;
-    Integer pageSize;
+    String experience;
+    String qualification;
 
+    Integer pageNumber = 0;
+    Integer pageSize = 6;
 }

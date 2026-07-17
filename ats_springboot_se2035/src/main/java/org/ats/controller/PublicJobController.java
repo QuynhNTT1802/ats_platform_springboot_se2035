@@ -27,11 +27,17 @@ public class PublicJobController {
         model.addAttribute("jobs", page.getContent());
         model.addAttribute("totalPage", page.getTotalPages());
         model.addAttribute("currentPage", page.getNumber());
+        model.addAttribute("browseRequest", new JobBrowseRequest());
         return  "views/public/browse_job";
     }
 
-//    @GetMapping("/browse")
-//    public String browseJobs(@ModelAttribute("browseRequest") JobBrowseRequest browseRequest){
-//        Page<JobResponse> page = jobService.
-//    }
+    @GetMapping("/browse")
+    public String browseJobs(@ModelAttribute("browseRequest") JobBrowseRequest browseRequest,
+                             Model model){
+        Page<JobResponse> page = jobService.browseJob(browseRequest);
+        model.addAttribute("jobs", page.getContent());
+        model.addAttribute("totalPage", page.getTotalPages());
+        model.addAttribute("currentPage", page.getNumber());
+        return "views/public/browse_job";
+    }
 }

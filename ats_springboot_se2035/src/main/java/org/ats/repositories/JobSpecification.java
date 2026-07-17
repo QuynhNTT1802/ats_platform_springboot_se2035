@@ -9,11 +9,11 @@ import jakarta.persistence.criteria.Predicate;
 import java.math.BigDecimal;
 
 public final class JobSpecification {
-    private JobSpecification(){
+    private JobSpecification() {
 
     }
 
-    public static Specification<Job> from (JobBrowseRequest request){
+    public static Specification<Job> from(JobBrowseRequest request) {
 
         return Specification.allOf(
                 hasKeyword(request.getKeyword()),
@@ -34,14 +34,24 @@ public final class JobSpecification {
             String pattern = "%" + keyword.trim().toLowerCase() + "%";
 
             Predicate titlePredicate = cb.like(
-                    cb.lower(root.get("title")),
+                    root.get("title"),
                     pattern
             );
 
             Predicate descriptionPredicate = cb.like(
-                    cb.lower(root.get("description")),
+                    root.get("description"),
                     pattern
             );
+
+//            Predicate titlePredicate = cb.like(
+//                    cb.lower(root.get("title")),
+//                    pattern
+//            );
+//
+//            Predicate descriptionPredicate = cb.like(
+//                    cb.lower(root.get("description")),
+//                    pattern
+//            );
 
             return cb.or(titlePredicate, descriptionPredicate);
         };
@@ -61,45 +71,45 @@ public final class JobSpecification {
         };
     }
 
-    private static Specification<Job> hasExperience(String experience){
-        return (root, query, criteriaBuilder) ->{
-           if(experience == null || experience.isBlank()){
-               return criteriaBuilder.conjunction();
-           }
+    private static Specification<Job> hasExperience(String experience) {
+        return (root, query, criteriaBuilder) -> {
+            if (experience == null || experience.isBlank()) {
+                return criteriaBuilder.conjunction();
+            }
 
-           return criteriaBuilder.like(
-                   criteriaBuilder.lower(root.get("experience")),
-                   "%" + experience.trim().toLowerCase()+ "%");
+            return criteriaBuilder.like(
+                    criteriaBuilder.lower(root.get("experience")),
+                    "%" + experience.trim().toLowerCase() + "%");
         };
     }
 
-    private static Specification<Job> hasJobType(String jobType){
+    private static Specification<Job> hasJobType(String jobType) {
         return ((root, query, criteriaBuilder) -> {
-           if(jobType == null || jobType.isBlank()){
-               return criteriaBuilder.conjunction();
-           }
+            if (jobType == null || jobType.isBlank()) {
+                return criteriaBuilder.conjunction();
+            }
 
-           return criteriaBuilder.like(
-                   criteriaBuilder.lower(root.get("jobType")),
-                   "%"+jobType+"%");
+            return criteriaBuilder.like(
+                    criteriaBuilder.lower(root.get("jobType")),
+                    "%" + jobType + "%");
         });
     }
 
-    private static Specification<Job> hasQualification(String qualification){
+    private static Specification<Job> hasQualification(String qualification) {
         return ((root, query, criteriaBuilder) -> {
-            if(qualification == null || qualification.isBlank()){
+            if (qualification == null || qualification.isBlank()) {
                 return criteriaBuilder.conjunction();
             }
 
             return criteriaBuilder.like(
                     criteriaBuilder.lower(root.get("qualification")),
-                    "%"+qualification+"%");
+                    "%" + qualification + "%");
         });
     }
 
-    private static Specification<Job> hasPriceNearRange(BigDecimal priceRange){
+    private static Specification<Job> hasPriceNearRange(BigDecimal priceRange) {
         return ((root, query, criteriaBuilder) -> {
-            if(priceRange == null){
+            if (priceRange == null || priceRange.compareTo(BigDecimal.ZERO) == 0) {
                 return criteriaBuilder.conjunction();
             }
 
@@ -107,13 +117,15 @@ public final class JobSpecification {
 
             BigDecimal minPrice = priceRange.subtract(tolerance);
             BigDecimal maxPrice = priceRange.add(tolerance);
-            return criteriaBuilder.between(
-                    root.get("priceRange"),
-                    minPrice,maxPrice);
+
+            Predicate minOverlap = criteriaBuilder.lessThanOrEqualTo(root.get("minSalary"), maxPrice);
+            Predicate maxOverlap = criteriaBuilder.greaterThanOrEqualTo(root.get("maxSalary"), minPrice);
+            return criteriaBuilder.and(minOverlap, maxOverlap);
+//            return criteriaBuilder.between(
+//                    root.get("priceRange"),
+//                    minPrice, maxPrice);
         });
     }
-
-
 
 
 }

@@ -104,6 +104,8 @@ public class JobServiceImpl implements JobService {
         JobRequest jobRequest = JobRequest.builder()
                 .id(job.getId())
                 .title(job.getTitle())
+                .experience(job.getExperience())
+                .qualification(job.getQualification())
                 .description(job.getDescription())
                 .location(job.getLocation())
                 .minSalary(job.getMinSalary())

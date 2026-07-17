@@ -14,6 +14,8 @@ public class JobRequest {
     private Long id;
     private String title;
     private String description;
+    private String experience;
+    private String qualification;
     private String location;
     private Double minSalary;
     private Double maxSalary;
