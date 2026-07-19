@@ -12,10 +12,7 @@ import org.ats.exceptions.JobNotFoundException;
 import org.ats.mapper.JobMapper;
 import org.ats.repositories.JobRepository;
 import org.ats.repositories.JobSpecification;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.*;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,6 +21,7 @@ import java.time.LocalTime;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -97,7 +95,10 @@ public class JobServiceImpl implements JobService {
     public Page<JobResponse> browseJob(JobBrowseRequest jobBrowseRequest) {
         Specification<Job> spec = JobSpecification.from(jobBrowseRequest);
         Pageable pageable = PageRequest.of(jobBrowseRequest.getPageNumber(),jobBrowseRequest.getPageSize());
-        return jobRepository.findAll(spec,pageable).map(jobMapper::toDTO);
+        Page<Job> jobs = jobRepository.findBy(JobSpecification.hasKeywordUsingPredicate(jobBrowseRequest.getKeyword()), q->q.as(Job.class).page(pageable));
+//        return jobRepository.findAll(spec,pageable).map(jobMapper::toDTO);
+        return jobs.map(jobMapper::toDTO);
+
     }
 
     private JobRequest toDto(Job job) {

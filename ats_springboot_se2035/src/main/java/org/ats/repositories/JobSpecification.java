@@ -2,7 +2,7 @@ package org.ats.repositories;
 
 import org.ats.dto.JobBrowseRequest;
 import org.ats.entities.Job;
-import org.springframework.data.jpa.domain.Specification;
+import org.springframework.data.jpa.domain.*;
 
 import jakarta.persistence.criteria.Predicate;
 
@@ -25,12 +25,34 @@ public final class JobSpecification {
         );
     }
 
+
+    public static PredicateSpecification<Job> hasKeywordUsingPredicate(String keyword){
+        return ((from, cb) -> {
+           if(keyword == null || keyword.isBlank()){
+               return cb.conjunction();
+           }
+
+            String pattern = "%" + keyword.trim().toLowerCase() + "%";
+
+            Predicate titlePredicate = cb.like(
+                    from.get("title"),
+                    pattern
+            );
+
+            Predicate descriptionPredicate = cb.like(
+                    from.get("description"),
+                    pattern
+            );
+
+            return cb.or(titlePredicate,descriptionPredicate);
+        });
+    }
+
     private static Specification<Job> hasKeyword(String keyword) {
         return (root, query, cb) -> {
             if (keyword == null || keyword.isBlank()) {
                 return cb.conjunction();
             }
-
             String pattern = "%" + keyword.trim().toLowerCase() + "%";
 
             Predicate titlePredicate = cb.like(
